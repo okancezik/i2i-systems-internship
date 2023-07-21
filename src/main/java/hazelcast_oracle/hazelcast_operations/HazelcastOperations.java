@@ -8,7 +8,7 @@ public class HazelcastOperations {
 
 	public static IMap<Object, Object> getMap() {
 		// Hazelcast sunucusunu başlatmak için yapılandırmayı oluşturun
-		//Config config = new Config();
+		// Config config = new Config();
 
 		HazelcastInstance hazelcastInstance = Hazelcast.newHazelcastInstance();
 

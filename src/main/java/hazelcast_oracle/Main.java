@@ -25,7 +25,7 @@ public class Main {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection connection = DatabaseOperations.getConnection();
-			System.out.println("baglantı olustu");
+			System.out.println("Connected");
 
 			Random rand = new Random();
 
@@ -39,7 +39,7 @@ public class Main {
 			long elapsedTime = endTime - startTime;
 
 			double seconds = elapsedTime / 1000.0;
-			System.out.println("İşlem süresi: " + seconds + " saniye");
+			System.out.println("Operation time : " + seconds + " seconds");
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -70,7 +70,7 @@ public class Main {
 
 			long elapsedTime = endTime - startTime;
 			double seconds = (double) elapsedTime / 1_000_000_000.0;
-			System.out.println("İşlem süresi: " + seconds + " saniye");
+			System.out.println("Operation time: " + seconds + " seconds");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -92,7 +92,7 @@ public class Main {
 
 		long elapsedTime = endTime - startTime;
 		double seconds = (double) elapsedTime / 1_000_000_000.0;
-		System.out.println("İşlem süresi: " + seconds + " saniye");
+		System.out.println("Operation time : " + seconds + " seconds");
 	}
 	
 	public static void getFromHazelcast() {
@@ -101,18 +101,18 @@ public class Main {
 		
 		long startTime = System.nanoTime();
 		
-		for(int i=0;i<10;i++) {
+		for(int i=0;i<100000;i++) {
 			int index = rand.nextInt(200);
 			String key = ""+index ;
 			Object value = myMap.get(key);
-			System.out.println(value);
+			//System.out.println(value);
 		}
 		
 		long endTime = System.nanoTime();
 
 		long elapsedTime = endTime - startTime;
 		double seconds = (double) elapsedTime / 1_000_000_000.0;
-		System.out.println("İşlem süresi: " + seconds + " saniye");
+		System.out.println("Operation time : " + seconds + " seconds");
 	}
 
 }
